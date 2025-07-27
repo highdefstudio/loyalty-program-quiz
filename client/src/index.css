@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 20%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 45%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 20%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 20%);
+  --border: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 90%);
+  --primary: hsl(350, 89%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(180, 100%, 70%);
+  --secondary-foreground: hsl(0, 0%, 20%);
+  --accent: hsl(180, 100%, 70%);
+  --accent-foreground: hsl(0, 0%, 20%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(0, 0%, 20%);
+  --radius: 0.5rem;
+  
+  /* HighDef Studio colors */
+  --coral: #F05E5E;
+  --turquoise: #00CECB;
+  --dark-gray: hsl(0, 0%, 20%);
+  --light-gray: hsl(0, 0%, 96%);
+  --medium-gray: hsl(0, 0%, 45%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+  
+  .subheader {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .coral-gradient {
+    background: linear-gradient(135deg, hsl(350, 89%, 60%) 0%, hsl(350, 89%, 50%) 100%);
+  }
+  
+  .turquoise-gradient {
+    background: linear-gradient(135deg, hsl(180, 100%, 70%) 0%, hsl(180, 100%, 60%) 100%);
+  }
+  
+  .result-gradient {
+    background: linear-gradient(135deg, hsl(350, 89%, 60%), hsl(180, 100%, 70%));
+    background-size: 200% 200%;
+    animation: gradient 4s ease infinite;
+  }
+  
+  .choice-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .choice-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modern-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid hsl(0, 0%, 92%);
+  }
+  
+  .border-coral {
+    border-color: #F05E5E;
+  }
+  
+  .bg-coral {
+    background-color: #F05E5E;
+  }
+  
+  .text-coral {
+    color: #F05E5E;
+  }
+
+  /* Custom progress bar styling */
+  .progress-custom {
+    background-color: #D8D8D8 !important;
+  }
+  
+  .progress-custom > div {
+    background-color: #F05E5E !important;
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+  }
+  
+  .animate-confetti {
+    animation: confetti 3s ease-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 71, 87, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.8), 0 0 30px rgba(255, 71, 87, 0.4); }
+}
